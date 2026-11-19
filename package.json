@@ -1,0 +1,29 @@
+{
+  "name": "gta6-menu-simulator",
+  "version": "1.0.0",
+  "description": "Fan-made GTA VI inspired main menu simulator",
+  "main": "main.js",
+  "author": "Community fan project",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable zip"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.fanproject.gta6menusim",
+    "productName": "GTA VI Menu Simulator",
+    "asar": true,
+    "directories": { "output": "dist" },
+    "files": ["main.js", "preload.js", "src/**/*", "assets/**/*", "package.json"],
+    "win": {
+      "icon": "assets/app-icon.ico",
+      "target": ["portable", "zip"]
+    },
+    "portable": { "artifactName": "GTA-VI-Menu-Simulator-${version}-portable.exe" },
+    "zip": { "artifactName": "GTA-VI-Menu-Simulator-${version}-win.zip" }
+  }
+}

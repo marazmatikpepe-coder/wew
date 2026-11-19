@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; img-src 'self' data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; script-src 'self';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA VI Menu Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="intro" class="screen intro-screen">
+    <video id="introVideo" playsinline preload="auto">
+      <source src="../assets/intro.mp4" type="video/mp4">
+    </video>
+    <div class="intro-shade"></div>
+    <div class="intro-hint">PRESS ANY KEY TO SKIP <span>ESC</span></div>
+    <div class="intro-loading"><i></i><span>LOADING VICE CITY</span></div>
+  </div>
+
+  <main id="mainMenu" class="screen menu-screen hidden">
+    <div class="menu-bg"></div>
+    <div class="ambient-vignette"></div>
+    <div class="top-account">SIGNED IN AS: <b>GTAVI_01</b></div>
+    <div class="menu-left">
+      <img class="game-logo" src="../assets/logo.png" alt="Grand Theft Auto VI">
+      <nav class="main-nav" aria-label="Main menu">
+        <button class="nav-item active" data-action="start"><span>START GAME</span><b>›</b></button>
+        <button class="nav-item" data-action="settings">SETTINGS</button>
+        <button class="nav-item" data-action="online">ONLINE</button>
+        <button class="nav-item" data-action="social">SOCIAL CLUB</button>
+        <button class="nav-item" data-action="quit">QUIT GAME</button>
+      </nav>
+    </div>
+    <div class="rockstar-mark">R<span>★</span></div>
+    <div class="bottom-hints"><span>ACCOUNT PICKER <kbd>Y</kbd></span><span>SELECT <kbd class="green">A</kbd></span></div>
+    <div class="window-actions"><button id="minimizeBtn" title="Minimize">—</button><button id="fullscreenBtn" title="Toggle fullscreen">□</button><button id="closeBtn" title="Close">×</button></div>
+  </main>
+
+  <section id="settingsScreen" class="screen settings-screen hidden">
+    <div class="settings-wall"></div><div class="settings-tint"></div>
+    <header class="settings-header">
+      <div class="settings-heading">SETTINGS</div>
+      <div class="tabs" id="tabs"></div>
+    </header>
+    <div class="settings-layout">
+      <div class="settings-list-wrap">
+        <div class="settings-section-label" id="sectionLabel">COMBAT</div>
+        <div id="settingsList" class="settings-list"></div>
+        <div class="list-scroll-hint">SCROLL TO EXPLORE <span>↕</span></div>
+      </div>
+      <aside class="setting-description"><div class="description-title" id="descriptionTitle">TARGETING</div><p id="descriptionText">Choose your preference for aiming lock-on.</p><p class="description-detail" id="descriptionDetail">Partial: Aiming will move towards a nearby target but will not lock on.</p></aside>
+    </div>
+    <footer class="settings-footer">
+      <div class="footer-left"><span class="saved-state" id="savedState">● SETTINGS SAVED</span></div>
+      <div class="footer-actions"><button id="restoreAll">RESTORE ALL <kbd>Y</kbd></button><button id="restoreDefault">RESTORE DEFAULT <kbd>Y</kbd></button><button id="backBtn">BACK <kbd>B</kbd></button></div>
+    </footer>
+  </section>
+
+  <section id="infoScreen" class="screen info-screen hidden">
+    <div class="info-bg"></div><div class="info-content"><img src="../assets/logo.png" alt="GTA VI" class="info-logo"><div class="eyebrow" id="infoEyebrow">VICE CITY NETWORK</div><h1 id="infoTitle">COMING SOON</h1><p id="infoText">This feature is not available in this menu simulator.</p><button id="infoBack" class="pink-button">BACK TO MENU <span>›</span></button></div>
+  </section>
+
+  <div id="toast" class="toast" role="status"></div>
+  <audio id="menuMusic" src="../assets/menu-theme.mp3" preload="auto" loop></audio>
+  <script src="app.js"></script>
+</body>
+</html>
